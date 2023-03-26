@@ -185,6 +185,15 @@ h1 {
   color: white;
 }
 
+.banner button {
+  border: white 1px solid;
+
+  margin-top: 10px;
+
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;
