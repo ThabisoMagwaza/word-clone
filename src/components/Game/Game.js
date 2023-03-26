@@ -6,7 +6,8 @@ import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
 import Guesses from '../Guesses';
 import Input from '../Input';
-import GameOverBanner from '../GameOverBanner';
+import WonBanner from '../WonBanner';
+import LostBanner from '../LostBanner';
 
 const GAME_STATUS = {
   playing: 'playing',
@@ -47,21 +48,11 @@ function Game() {
       <Input addGuess={addGuess} disabled={status !== GAME_STATUS.playing} />
 
       {status === GAME_STATUS.won && (
-        <GameOverBanner
-          type={'happy'}
-          numGuesses={guesses.length}
-          answer={answer}
-          restart={restart}
-        />
+        <WonBanner numGuesses={guesses.length} restart={restart} />
       )}
 
       {status === GAME_STATUS.lost && (
-        <GameOverBanner
-          type={'sad'}
-          numGuesses={guesses.length}
-          answer={answer}
-          restart={restart}
-        />
+        <LostBanner answer={answer} restart={restart} />
       )}
     </>
   );

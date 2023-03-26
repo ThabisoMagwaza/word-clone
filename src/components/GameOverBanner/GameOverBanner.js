@@ -1,23 +1,12 @@
 import React from 'react';
+import Banner from '../Banner';
 
-function GameOverBanner({ type, numGuesses, answer, restart }) {
+function GameOverBanner({ status, restart, children }) {
   return (
-    <div className={`${type} banner`}>
-      {type === 'happy' && (
-        <p>
-          <strong>Congratulations!</strong> Got it in{' '}
-          <strong>{numGuesses}</strong>.
-        </p>
-      )}
-
-      {type === 'sad' && (
-        <p>
-          Sorry, the correct answer was <strong>{answer}</strong>.
-        </p>
-      )}
-
+    <Banner status={status}>
+      {children}
       <button onClick={restart}>Start Again</button>
-    </div>
+    </Banner>
   );
 }
 
